@@ -7,6 +7,8 @@
       <img src="/carrusel4.png" alt="Marca 4">
       <img src="/carrusel5.png" alt="Marca 5">
       <img src="/carrusel6.png" alt="Marca 6">
+
+      <!-- Duplicadas para scroll infinito -->
       <img src="/carrusel1.png" alt="Marca 1">
       <img src="/carrusel2.png" alt="Marca 2">
       <img src="/carrusel3.png" alt="Marca 3">
@@ -20,27 +22,24 @@
 <style>
   .brands-list {
     overflow: hidden;
-    padding: 2rem 0; /* Más alto para sección más grande */
-    background-color: #f8f8ef; /* Fondo clarito */
+    padding: 2.5rem 0;
+    background-color: #f8f8ef;
   }
 
   .wrapper {
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
     animation: scroll 8s linear infinite;
   }
 
   @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
 
+  /* ==== TAMAÑO BASE (más grande en desktop) ==== */
   .wrapper img {
-    width: 240px; /* Más grande */
+    width: 300px;    /* AUMENTADO */
     height: auto;
     flex-shrink: 0;
     transition: filter 0.3s ease;
@@ -51,32 +50,36 @@
     filter: brightness(1.1);
   }
 
-  /* Responsividad */
+  /* ==== RESPONSIVE ==== */
+
+  /* Tablets y laptops pequeñas */
   @media (max-width: 1024px) {
     .wrapper img {
-      width: 200px;
+      width: 260px; /* Más grande que antes */
     }
   }
 
+  /* Tablets verticales y móviles grandes */
   @media (max-width: 768px) {
     .wrapper {
-      gap: 1.5rem;
-      animation-duration: 8s;
+      gap: 2rem;
+      animation-duration: 7s;
     }
 
     .wrapper img {
-      width: 160px;
+      width: 220px; /* Más grande que antes */
     }
   }
 
+  /* Celulares */
   @media (max-width: 480px) {
     .wrapper {
-      gap: 1rem;
+      gap: 1.2rem;
       animation-duration: 6s;
     }
 
     .wrapper img {
-      width: 120px;
+      width: 180px; /* Mucho más grande que antes */
     }
   }
 </style>
