@@ -1,0 +1,122 @@
+---
+const handleSubmit = (e: Event) => {
+  e.preventDefault();
+  alert("Formulario enviado (simulación). Implementa tu lógica de envío aquí.");
+};
+---
+
+<section class="contact-section">
+  <div class="contact-container">
+    <h2 class="contact-title">Contáctanos</h2>
+    <p class="contact-text">
+      Completa el formulario y nos pondremos en contacto contigo lo antes posible.
+    </p>
+
+    <form class="contact-form" onSubmit={handleSubmit}>
+      <label>
+        Nombre
+        <input type="text" name="name" placeholder="Tu nombre" required />
+      </label>
+
+      <label>
+        Correo electrónico
+        <input type="email" name="email" placeholder="Tu email" required />
+      </label>
+
+      <label>
+        Mensaje
+        <textarea name="message" placeholder="Escribe tu mensaje..." required></textarea>
+      </label>
+
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </div>
+</section>
+
+<style>
+.contact-section {
+  padding: 80px 20px;
+  background-color: #f8f8ef; /* Fondo clarito */
+  color: #422222; /* Letras color principal */
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.contact-text {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-top: 5px;
+  padding: 12px 15px;
+  border: 1px solid #e5e5d9;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #422222;
+  background-color: #ffffff;
+  resize: vertical;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #422222;
+  box-shadow: 0 0 5px rgba(37,211,102,0.5);
+}
+
+.contact-form button {
+  background-color: #422222;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.contact-form button:hover {
+  background-color: #422222;
+  transform: scale(1.05);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .contact-text {
+    font-size: 1rem;
+  }
+}
+</style>

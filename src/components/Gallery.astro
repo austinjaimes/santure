@@ -1,0 +1,82 @@
+<section>
+  <div class="brands-list">
+    <div class="wrapper">
+      <img src="/carrusel1.png" alt="Marca 1">
+      <img src="/carrusel2.png" alt="Marca 2">
+      <img src="/carrusel3.png" alt="Marca 3">
+      <img src="/carrusel4.png" alt="Marca 4">
+      <img src="/carrusel5.png" alt="Marca 5">
+      <img src="/carrusel6.png" alt="Marca 6">
+      <img src="/carrusel1.png" alt="Marca 1">
+      <img src="/carrusel2.png" alt="Marca 2">
+      <img src="/carrusel3.png" alt="Marca 3">
+      <img src="/carrusel4.png" alt="Marca 4">
+      <img src="/carrusel5.png" alt="Marca 5">
+      <img src="/carrusel6.png" alt="Marca 6">
+    </div>
+  </div>
+</section>
+
+<style>
+  .brands-list {
+    overflow: hidden;
+    padding: 2rem 0; /* Más alto para sección más grande */
+    background-color: #f8f8ef; /* Fondo clarito */
+  }
+
+  .wrapper {
+    display: flex;
+    gap: 2rem;
+    animation: scroll 8s linear infinite;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .wrapper img {
+    width: 240px; /* Más grande */
+    height: auto;
+    flex-shrink: 0;
+    transition: filter 0.3s ease;
+    filter: brightness(0.8);
+  }
+
+  .wrapper img:hover {
+    filter: brightness(1.1);
+  }
+
+  /* Responsividad */
+  @media (max-width: 1024px) {
+    .wrapper img {
+      width: 200px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .wrapper {
+      gap: 1.5rem;
+      animation-duration: 8s;
+    }
+
+    .wrapper img {
+      width: 160px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .wrapper {
+      gap: 1rem;
+      animation-duration: 6s;
+    }
+
+    .wrapper img {
+      width: 120px;
+    }
+  }
+</style>

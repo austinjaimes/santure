@@ -1,0 +1,164 @@
+<div class="edu-wrapper">
+<section class="edu">
+  <h2 class="edu-title">Educación Olfativa</h2>
+
+  <!-- Bloque 1 - Notas Olfativas -->
+  <div class="edu-block">
+    <h3 class="edu-subtitle">Notas Olfativas</h3>
+    <p class="edu-text">
+      Todo perfume está compuesto por notas que evolucionan con el tiempo. Estas notas se dividen en tres niveles principales:
+    </p>
+
+    <div class="edu-grid">
+      <div class="edu-card">
+        <h4>Notas de Salida</h4>
+        <p>Lo primero que hueles al aplicar un perfume. Son frescas, volátiles y duran pocos minutos.</p>
+      </div>
+
+      <div class="edu-card">
+        <h4>Notas de Corazón</h4>
+        <p>La identidad del perfume. Florales, especiadas o frutales. Duran entre 2 y 4 horas.</p>
+      </div>
+
+      <div class="edu-card">
+        <h4>Notas de Fondo</h4>
+        <p>La base del perfume. Amaderadas, dulces o almizcladas. Son las más duraderas.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bloque 2 - Categorías -->
+  <div class="edu-block">
+    <h3 class="edu-subtitle">Categorías de Aromas</h3>
+    <p class="edu-text">
+      En Santure manejamos perfumes de distintas familias olfativas. Aquí algunas de las más comunes:
+    </p>
+
+    <div class="edu-grid">
+      <div class="edu-card">
+        <h4>Cítricos</h4>
+        <p>Limón, bergamota, naranja. Frescos y perfectos para el día.</p>
+      </div>
+
+      <div class="edu-card">
+        <h4>Dulces</h4>
+        <p>Vainilla, caramelo, cacao. Perfumes cálidos y envolventes.</p>
+      </div>
+
+      <div class="edu-card">
+        <h4>Amaderados</h4>
+        <p>Sándalo, cedro, vetiver. Masculinos, elegantes y profundos.</p>
+      </div>
+
+      <div class="edu-card">
+        <h4>Acuáticos</h4>
+        <p>Limpios, frescos y modernos. Ideales para uso diario.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+</div>
+
+<style>
+  /* 🟤 CORRECCIÓN DEL PROBLEMA DE WIDTH */
+  .edu-wrapper,
+  .edu-wrapper * {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  
+  .edu-wrapper {
+    background-color: #f8f8ef;
+    overflow-x: hidden; /* <-- evita desbordamiento lateral */
+    padding: 40px 20px;
+  }
+
+  .edu {
+    width: 100%;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+
+  .edu-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #422222;
+    margin-bottom: 50px;
+  }
+
+  .edu-block {
+    margin-bottom: 60px;
+  }
+
+  .edu-subtitle {
+    font-size: 1.6rem;
+    color: #422222;
+    margin-bottom: 10px;
+  }
+
+  .edu-text {
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.6;
+  }
+
+  .edu-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .edu-card {
+    background: #ffffff;
+    border: 1px solid #e2dcd2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+
+  .edu-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  }
+
+  .edu-card h4 {
+    color: #422222;
+    margin-bottom: 8px;
+  }
+
+  /* Pirámide */
+  .piramide {
+    width: 250px;
+    margin: 0 auto;
+  }
+
+  .piramide-level {
+    text-align: center;
+    padding: 12px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 5px;
+    border-radius: 4px;
+  }
+
+  .level-top {
+    background: #9e6b6b;
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .level-mid {
+    background: #7e4b4b;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .level-bottom {
+    background: #422222;
+    width: 100%;
+    margin: 0 auto;
+  }
+</style>

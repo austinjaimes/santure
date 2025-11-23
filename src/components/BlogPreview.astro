@@ -1,0 +1,113 @@
+---
+const posts = [
+  {
+    title: "Cómo elegir tu primer perfume",
+    excerpt: "Elegir un perfume puede ser difícil. Aquí te explicamos cómo identificar notas, familias olfativas y elegir el aroma ideal.",
+    date: "12 Nov 2025"
+  },
+  {
+    title: "¿Qué son las notas olfativas?",
+    excerpt: "Aprende la diferencia entre notas de salida, corazón y fondo, y cómo influyen en la duración de un perfume.",
+    date: "05 Nov 2025"
+  },
+  {
+    title: "Por qué los decants son la mejor forma de probar perfumes",
+    excerpt: "Antes de invertir en un perfume caro, descubre por qué probarlo en formato decant es la mejor decisión.",
+    date: "01 Nov 2025"
+  }
+];
+---
+
+<div class="blog-wrapper">
+  <section class="blog-section">
+    <h2 class="blog-title">Blog & Artículos</h2>
+
+    <div class="blog-grid">
+      {posts.map((post) => (
+        <div class="blog-card">
+          <h3 class="blog-post-title">{post.title}</h3>
+          <p class="blog-excerpt">{post.excerpt}</p>
+          <p class="blog-date">{post.date}</p>
+          <a href="#" class="blog-link">Leer más →</a>
+        </div>
+      ))}
+    </div>
+  </section>
+</div>
+
+<style>
+  /* CORRECCIÓN DEL PROBLEMA DE WIDTH */
+  .blog-wrapper,
+  .blog-wrapper * {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  .blog-wrapper {
+    background-color: #f8f8ef;
+    padding: 50px 20px;
+    overflow-x: hidden; /* <-- evita que se salga de la pantalla */
+  }
+
+  .blog-section {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .blog-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #422222;
+    margin-bottom: 40px;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+  }
+
+  .blog-card {
+    background: #ffffff;
+    border: 1px solid #e2dcd2;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+  }
+
+  .blog-post-title {
+    font-size: 1.25rem;
+    color: #422222;
+    margin-bottom: 10px;
+  }
+
+  .blog-excerpt {
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+
+  .blog-date {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 15px;
+  }
+
+  .blog-link {
+    color: #422222;
+    font-weight: bold;
+    font-size: 0.95rem;
+    text-decoration: none;
+  }
+
+  .blog-link:hover {
+    text-decoration: underline;
+  }
+</style>

@@ -1,0 +1,204 @@
+---
+import "swiper/css";
+import Swiper from "swiper";
+import { Navigation } from "swiper/modules";
+
+const testimonialData = [
+  {
+    nombre: "Juan Pérez",
+    mensaje: "Los decants llegaron perfectos y súper bien presentados. Gracias a Santure pude probar perfumes antes de comprar el frasco.",
+    puesto: "Cliente de Santure",
+    foto: "https://randomuser.me/api/portraits/men/32.jpg"
+  },
+  {
+    nombre: "María López",
+    mensaje: "Me ayudaron a elegir según mis gustos. La atención es profesional y amable. 100% recomendado.",
+    puesto: "Cliente de Santure",
+    foto: "https://randomuser.me/api/portraits/women/44.jpg"
+  },
+  {
+    nombre: "Carlos Ruiz",
+    mensaje: "Perfumes originales, excelente servicio y envío rápido. Santure se volvió mi tienda favorita.",
+    puesto: "Cliente de Santure",
+    foto: "https://randomuser.me/api/portraits/men/56.jpg"
+  },
+  {
+    nombre: "Ana Gómez",
+    mensaje: "Pude probar fragancias niche sin pagar demasiado. Me encantó la experiencia de compra en Santure.",
+    puesto: "Cliente de Santure",
+    foto: "https://randomuser.me/api/portraits/women/68.jpg"
+  },
+];
+---
+<section id="testimonios" class="testimonios-section">
+  <div class="testimonios-header">
+    <h2>Lo Que Dicen Nuestros Clientes</h2>
+    <p>
+      En Santure ofrecemos decants, fragancias originales y una experiencia premium para ayudarte a encontrar tu aroma ideal.
+    </p>
+  </div>
+
+  <div class="testimonios-container">
+    <div class="swiper testimonials-swiper">
+      <div class="swiper-wrapper">
+        {testimonialData.map((t) => (
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-info">
+                <img src={t.foto} alt={t.nombre} />
+                <div>
+                  <h4>{t.nombre}</h4>
+                  <p class="puesto">{t.puesto}</p>
+                </div>
+              </div>
+              <p class="mensaje">"{t.mensaje}"</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="testimonios-buttons">
+      <button class="testimonial-swiper-button-prev">◀</button>
+      <button class="testimonial-swiper-button-next">▶</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  import Swiper from "swiper";
+  import { Navigation } from "swiper/modules";
+
+  const swiper = new Swiper(".testimonials-swiper", {
+    modules: [Navigation],
+    slidesPerView: 1.05,
+    spaceBetween: 16,
+    loop: true,
+    grabCursor: true,
+    centeredSlides: false,
+    navigation: {
+      nextEl: ".testimonial-swiper-button-next",
+      prevEl: ".testimonial-swiper-button-prev",
+    },
+    breakpoints: {
+      480: { slidesPerView: 1.2, spaceBetween: 16 },
+      640: { slidesPerView: 1.3, spaceBetween: 18 },
+      768: { slidesPerView: 1.5, spaceBetween: 20 },
+      1024: { slidesPerView: 2, spaceBetween: 24 },
+      1280: { slidesPerView: 2.3, spaceBetween: 28 },
+      1600: { slidesPerView: 2.5, spaceBetween: 32 },
+    },
+  });
+</script>
+
+<style>
+/* Sección */
+.testimonios-section {
+  background-color: #f8f8ef;
+  padding: 90px 20px;
+}
+
+/* Encabezado */
+.testimonios-header {
+  max-width: 900px;
+  text-align: center;
+  margin: 0 auto 50px auto;
+}
+
+.testimonios-header h2 {
+  font-size: 42px;
+  font-weight: 900;
+  color: #422222;
+  margin-bottom: 10px;
+}
+
+.testimonios-header p {
+  font-size: 18px;
+  color: #4A4A4A;
+}
+
+/* Swiper contenedor */
+.testimonios-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.swiper {
+  overflow: hidden;
+}
+
+/* Tarjetas */
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 25px;
+  height: 100%;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonial-card:hover {
+  transform: scale(1.05);
+}
+
+/* Info */
+.testimonial-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.testimonial-info img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.testimonial-info h4 {
+  font-weight: 600;
+  color: #422222;
+}
+
+.puesto {
+  color: #555;
+  font-size: 14px;
+}
+
+/* Mensaje */
+.mensaje {
+  color: #333;
+  font-size: 17px;
+}
+
+/* Botones */
+.testimonios-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.testimonios-buttons button {
+  border: 2px solid #422222;
+  color: #422222;
+  background: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.testimonios-buttons button:hover {
+  background-color: #422222;
+  color: white;
+}
+</style>

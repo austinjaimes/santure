@@ -1,0 +1,161 @@
+<nav class="navbar">
+  <div class="navbar-container">
+
+    <!-- LOGO -->
+    <a href="/" class="logo">
+      <img src="/logosanture.png" alt="Santure" />
+    </a>
+
+    <!-- BOTÓN HAMBURGUESA -->
+    <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- LINKS DESKTOP -->
+    <div class="links-desktop">
+      <a href="#">Inicio</a>
+      <a href="#">Catálogo</a>
+      <a href="#">Nosotros</a>
+      <a href="#">Cultura Empresarial</a>
+      <a href="#">Blog</a>
+      <a href="#">Contacto</a>
+      <a href="#">Políticas</a>
+    </div>
+  </div>
+
+  <!-- MENÚ MÓVIL -->
+  <div id="mobile-menu" class="mobile-menu">
+    <a href="#">Inicio</a>
+    <a href="#">Catálogo</a>
+    <a href="#">Nosotros</a>
+    <a href="#">Cultura Empresarial</a>
+    <a href="#">Blog</a>
+    <a href="#">Contacto</a>
+    <a href="#">Políticas</a>
+  </div>
+</nav>
+
+<style>
+/* EVITA SCROLL HORIZONTAL */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #f8f8ef;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+  overflow-x: hidden; /* Solución */
+}
+
+/* CONTENEDOR */
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 80px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* LOGO */
+.logo img {
+  height: 65px;
+  width: auto;
+  display: block;
+}
+
+/* LINKS DESKTOP */
+.links-desktop {
+  display: flex;
+  gap: 25px;
+}
+
+.links-desktop a {
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #422222;
+  transition: opacity 0.3s;
+}
+
+.links-desktop a:hover {
+  opacity: 0.6;
+}
+
+/* HAMBURGUESA */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: #422222;
+  transition: 0.3s;
+}
+
+/* MENÚ MÓVIL */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: #f8f8ef;
+  padding: 15px 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  animation: fadeScale 0.25s ease-out;
+}
+
+.mobile-menu a {
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e5e5;
+  text-decoration: none;
+  color: #422222;
+}
+
+.mobile-menu a:last-child {
+  border-bottom: none;
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeScale {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+  .navbar-container {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 60px; /* espacio exacto para la hamburguesa */
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .links-desktop {
+    display: none;
+  }
+}
+</style>

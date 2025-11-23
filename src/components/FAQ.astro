@@ -1,0 +1,189 @@
+---
+const faqs = [
+  {
+    q: "¿Qué es un decant?",
+    a: "Un decant es una muestra extraída de un perfume original y envasada en un atomizador pequeño para que puedas probarlo antes de comprar el frasco completo."
+  },
+  {
+    q: "¿Los decants son originales?",
+    a: "Sí. Todos nuestros decants provienen de perfumes 100% originales y se preparan en envases estériles y seguros."
+  },
+  {
+    q: "¿Qué tamaños manejan?",
+    a: "Actualmente ofrecemos 3 ml, 5 ml y 10 ml dependiendo del perfume disponible."
+  },
+  {
+    q: "¿Hacen envíos?",
+    a: "Sí, realizamos envíos a todo México. El costo varía según tu ubicación."
+  },
+  {
+    q: "¿Cómo puedo pedir?",
+    a: "Puedes hacerlo vía WhatsApp, Instagram o desde el botón que te enviará a nuestra tienda en línea de TiendaNube."
+  }
+];
+---
+
+<section class="faq-section">
+  <div class="faq">
+    <h2 class="faq-title">Preguntas Frecuentes</h2>
+
+    <div class="faq-list">
+      {faqs.map((item, index) => (
+        <div class="faq-item">
+          <button
+            class="faq-question"
+            aria-expanded="false"
+            aria-controls={`faq-${index}`}
+            id={`faq-btn-${index}`}
+            type="button"
+          >
+            {item.q}
+            <span class="faq-caret" aria-hidden="true">▾</span>
+          </button>
+
+          <div id={`faq-${index}`} class="faq-answer" role="region" aria-labelledby={`faq-btn-${index}`}>
+            <p>{item.a}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // JS: mejora de accesibilidad y animación de apertura/cierre
+  document.addEventListener("DOMContentLoaded", () => {
+    const questions = Array.from(document.querySelectorAll(".faq-question"));
+
+    questions.forEach((btn) => {
+      const targetId = btn.getAttribute("aria-controls");
+      const panel = document.getElementById(targetId);
+
+      // ensure panel starts closed
+      panel.style.maxHeight = "0px";
+      panel.style.overflow = "hidden";
+
+      btn.addEventListener("click", () => {
+        const isOpen = btn.getAttribute("aria-expanded") === "true";
+
+        if (isOpen) {
+          // close
+          btn.setAttribute("aria-expanded", "false");
+          btn.classList.remove("open");
+          panel.style.maxHeight = "0px";
+        } else {
+          // open
+          btn.setAttribute("aria-expanded", "true");
+          btn.classList.add("open");
+          // set to scrollHeight to animate open
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+
+      // Optional: close panel smoothly when window resizes (recalculate heights)
+      window.addEventListener("resize", () => {
+        if (btn.getAttribute("aria-expanded") === "true") {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  /* Safety */
+  .faq-section, .faq-section * { box-sizing: border-box; }
+
+  /* Section full width background (clarito) */
+  .faq-section {
+    background-color: #f8f8ef;
+    padding: 60px 16px;
+  }
+
+  /* Centered content container with safe padding */
+  .faq {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  .faq-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #422222;
+    margin-bottom: 32px;
+  }
+
+  .faq-list {
+    display: block;
+    width: 100%;
+  }
+
+  .faq-item {
+    margin-bottom: 18px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    padding-bottom: 12px;
+  }
+
+  /* Question button */
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 12px 0;
+    color: #422222;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    line-height: 1.3;
+    transition: color 0.15s ease;
+  }
+
+  .faq-question:focus {
+    outline: 3px solid rgba(66,34,34,0.12);
+    outline-offset: 4px;
+  }
+
+  .faq-question:hover {
+    color: #6b3a3a;
+  }
+
+  .faq-caret {
+    font-size: 0.9rem;
+    color: #422222;
+    transition: transform 0.2s ease;
+  }
+
+  .faq-question.open .faq-caret,
+  .faq-question.open + .faq-answer + .faq-caret {
+    transform: rotate(180deg);
+  }
+
+  /* Answer panel */
+  .faq-answer {
+    max-height: 0; /* will be toggled via JS */
+    overflow: hidden;
+    transition: max-height 0.28s ease;
+  }
+
+  .faq-answer p {
+    margin: 10px 0 0 0;
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+    word-break: break-word; /* evita overflow de palabras largas */
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .faq-section { padding: 40px 12px; }
+    .faq-title { font-size: 1.6rem; margin-bottom: 20px; }
+    .faq-question { font-size: 1rem; }
+    .faq-answer p { font-size: 0.98rem; }
+  }
+</style>
