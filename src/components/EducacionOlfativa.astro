@@ -1,58 +1,60 @@
-<div class="edu-wrapper">
+<div id="educacion-olfativa" class="edu-wrapper">
 <section class="edu">
-  <h2 class="edu-title">Educación Olfativa</h2>
 
-  <!-- Bloque 1 - Notas Olfativas -->
+  <h2 class="edu-title">Educación Olfativa</h2>
+  <div class="divider"></div>
+
+  <!-- Bloque 1 -->
   <div class="edu-block">
     <h3 class="edu-subtitle">Notas Olfativas</h3>
     <p class="edu-text">
-      Todo perfume está compuesto por notas que evolucionan con el tiempo. Estas notas se dividen en tres niveles principales:
+      Cada perfume cuenta una historia que evoluciona con el tiempo. Esta evolución se divide en tres etapas que dictan su personalidad, duración y proyección.
     </p>
 
     <div class="edu-grid">
-      <div class="edu-card">
+      <div class="edu-card fade-in">
         <h4>Notas de Salida</h4>
-        <p>Lo primero que hueles al aplicar un perfume. Son frescas, volátiles y duran pocos minutos.</p>
+        <p>Brillantes, frescas y volátiles. Son la primera impresión del perfume y duran pocos minutos.</p>
       </div>
 
-      <div class="edu-card">
+      <div class="edu-card fade-in">
         <h4>Notas de Corazón</h4>
-        <p>La identidad del perfume. Florales, especiadas o frutales. Duran entre 2 y 4 horas.</p>
+        <p>El alma del perfume. Florales, frutales o especiadas, visibles durante varias horas.</p>
       </div>
 
-      <div class="edu-card">
+      <div class="edu-card fade-in">
         <h4>Notas de Fondo</h4>
-        <p>La base del perfume. Amaderadas, dulces o almizcladas. Son las más duraderas.</p>
+        <p>La profundidad y estabilidad del aroma. Dulces, amaderadas o almizcladas, permanecen en la piel por más tiempo.</p>
       </div>
     </div>
   </div>
 
-  <!-- Bloque 2 - Categorías -->
+  <!-- Bloque 2 -->
   <div class="edu-block">
     <h3 class="edu-subtitle">Categorías de Aromas</h3>
     <p class="edu-text">
-      En Santure manejamos perfumes de distintas familias olfativas. Aquí algunas de las más comunes:
+      En Santure ofrecemos fragancias cuidadosamente seleccionadas que abarcan las principales familias olfativas.
     </p>
 
     <div class="edu-grid">
-      <div class="edu-card">
+      <div class="edu-card fade-in">
         <h4>Cítricos</h4>
-        <p>Limón, bergamota, naranja. Frescos y perfectos para el día.</p>
+        <p>Refrescantes, vibrantes y limpios. Ideales para el uso diario y clima cálido.</p>
       </div>
 
-      <div class="edu-card">
+      <div class="edu-card fade-in">
         <h4>Dulces</h4>
-        <p>Vainilla, caramelo, cacao. Perfumes cálidos y envolventes.</p>
+        <p>Perfumes envolventes con vainilla, caramelo o cacao. Cálidos y seductores.</p>
       </div>
 
-      <div class="edu-card">
+      <div class="edu-card fade-in">
         <h4>Amaderados</h4>
-        <p>Sándalo, cedro, vetiver. Masculinos, elegantes y profundos.</p>
+        <p>Sándalo, cedro, vetiver. Elegantes, profundos y con carácter.</p>
       </div>
 
-      <div class="edu-card">
+      <div class="edu-card fade-in">
         <h4>Acuáticos</h4>
-        <p>Limpios, frescos y modernos. Ideales para uso diario.</p>
+        <p>Limpios, suaves y modernos. Perfectos para ocasiones casuales.</p>
       </div>
     </div>
   </div>
@@ -61,104 +63,116 @@
 </div>
 
 <style>
-  /* 🟤 CORRECCIÓN DEL PROBLEMA DE WIDTH */
-  .edu-wrapper,
-  .edu-wrapper * {
-    box-sizing: border-box;
-    max-width: 100%;
-  }
-  
+  /* CONTENEDOR */
   .edu-wrapper {
     background-color: #f8f8ef;
-    overflow-x: hidden; /* <-- evita desbordamiento lateral */
-    padding: 40px 20px;
+    padding: 70px 20px;
+    overflow-x: hidden;
   }
 
   .edu {
     width: 100%;
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
+  /* TITULOS */
   .edu-title {
     text-align: center;
-    font-size: 2.2rem;
+    font-size: 3rem;
     color: #422222;
-    margin-bottom: 50px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
   }
 
-  .edu-block {
-    margin-bottom: 60px;
+  .divider {
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, #422222, #9e6b6b, #422222);
+    margin: 0 auto 50px;
+    border-radius: 10px;
   }
 
   .edu-subtitle {
-    font-size: 1.6rem;
+    font-size: 2rem;
     color: #422222;
     margin-bottom: 10px;
+    font-weight: 700;
   }
 
   .edu-text {
     color: #555;
-    margin-bottom: 25px;
-    line-height: 1.6;
+    margin-bottom: 35px;
+    line-height: 1.7;
+    font-size: 1.1rem;
   }
 
+  /* GRID */
   .edu-grid {
     display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   }
 
+  /* TARJETAS PREMIUM */
   .edu-card {
-    background: #ffffff;
-    border: 1px solid #e2dcd2;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-    transition: transform .2s ease, box-shadow .2s ease;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(66, 34, 34, 0.15);
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    transition: all .25s ease;
+    position: relative;
   }
 
   .edu-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+    border-color: #9e6b6b;
   }
 
   .edu-card h4 {
     color: #422222;
-    margin-bottom: 8px;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-weight: 700;
   }
 
-  /* Pirámide */
-  .piramide {
-    width: 250px;
-    margin: 0 auto;
+  .edu-card p {
+    color: #444;
+    line-height: 1.6;
   }
 
-  .piramide-level {
-    text-align: center;
-    padding: 12px;
-    color: #fff;
-    font-weight: bold;
-    margin-bottom: 5px;
-    border-radius: 4px;
+  /* ANIMACIONES */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.7s ease forwards;
   }
 
-  .level-top {
-    background: #9e6b6b;
-    width: 60%;
-    margin: 0 auto;
+  .fade-in:nth-child(1) { animation-delay: 0.1s; }
+  .fade-in:nth-child(2) { animation-delay: 0.2s; }
+  .fade-in:nth-child(3) { animation-delay: 0.3s; }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  .level-mid {
-    background: #7e4b4b;
-    width: 80%;
-    margin: 0 auto;
-  }
-
-  .level-bottom {
-    background: #422222;
-    width: 100%;
-    margin: 0 auto;
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .edu-title {
+      font-size: 2.4rem;
+    }
+    .edu-subtitle {
+      font-size: 1.6rem;
+    }
+    .edu-text {
+      font-size: 1rem;
+    }
   }
 </style>
