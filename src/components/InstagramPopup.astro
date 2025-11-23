@@ -1,0 +1,113 @@
+<!-- =======================
+     Instagram Popup Component (Left Side)
+     ======================= -->
+
+<div class="insta-popup" id="instaPopup">
+  <button class="popup-close" id="popupClose">×</button>
+
+  <h3 class="popup-title">¿Ya nos sigues en Instagram?</h3>
+
+  <p class="popup-text">
+    Descubre nuevos perfumes, reseñas y contenido exclusivo.
+  </p>
+
+  <a 
+    href="https://www.instagram.com/santuredecants/?utm_source=ig_web_button_share_sheet" 
+    target="_blank" 
+    class="popup-btn">
+    Ver Instagram
+  </a>
+</div>
+
+<style>
+  .insta-popup {
+    position: fixed;
+    bottom: 22px;
+    left: 22px; 
+    width: 100%;
+    max-width: 260px; /* ← ANTES ERA 280, AHORA MÁS PEQUEÑO Y RESPONSIVO */
+    padding: 22px 20px;
+
+    background: #ffffff;
+    border: 1px solid #e5e5d9;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+
+    display: none;
+    opacity: 0;
+    transform: translateY(25px);
+    transition: all 0.4s ease;
+    z-index: 9999;
+  }
+
+  .insta-popup.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .popup-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #555;
+  }
+
+  .popup-title {
+    color: #422222;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+
+  .popup-text {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+
+  .popup-btn {
+    display: block;
+    background: #422222;
+    color: white;
+    text-align: center;
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.2s;
+  }
+
+  .popup-btn:hover {
+    background: #6a3b3b;
+  }
+
+  /* RESPONSIVE MUCHO MÁS AJUSTADO */
+  @media (max-width: 500px) {
+    .insta-popup {
+      left: 15px;
+      right: 15px;
+      bottom: 18px;
+      max-width: 230px; /* ← MÁS PEQUEÑO EN CELULAR */
+      padding: 18px 16px;
+    }
+  }
+</style>
+
+
+<script>
+  // Mostrar popup después de 4 segundos
+  setTimeout(() => {
+    document.getElementById("instaPopup").classList.add("show");
+  }, 4000);
+
+  // Cerrar popup al presionar la X
+  document.getElementById("popupClose").addEventListener("click", () => {
+    document.getElementById("instaPopup").classList.remove("show");
+  });
+</script>
