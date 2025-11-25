@@ -1,10 +1,11 @@
 ---
-const handleSubmit = (e: Event) => {
-  e.preventDefault();
-  alert("Formulario enviado (simulación). Implementa tu lógica de envío aquí.");
-};
----
+let enviado = false;
 
+// Si el formulario se envió, Astro.request.method será POST
+if (Astro.request.method === "POST") {
+  enviado = true;
+}
+---
 <section id="contacto" class="contact-section">
   <div class="contact-container">
     <h2 class="contact-title">Contáctanos</h2>
@@ -12,7 +13,22 @@ const handleSubmit = (e: Event) => {
       Completa el formulario y nos pondremos en contacto contigo lo antes posible.
     </p>
 
-    <form class="contact-form" onSubmit={handleSubmit}>
+    <form 
+  class="contact-form" 
+  name="contacto" 
+  method="POST" 
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  action="#contacto"
+>
+      <!-- Campo oculto obligatorio para Netlify -->
+      <input type="hidden" name="form-name" value="contacto" />
+
+      <!-- Honeypot (anti-spam) -->
+      <p style="display:none;">
+        <label>No llenar este campo: <input name="bot-field" /></label>
+      </p>
+
       <label>
         Nombre
         <input type="text" name="name" placeholder="Tu nombre" required />
@@ -29,6 +45,11 @@ const handleSubmit = (e: Event) => {
       </label>
 
       <button type="submit">Enviar mensaje</button>
+
+      <!-- Mensaje de éxito -->
+      {enviado && (
+        <p class="success-message">✔️ Tu mensaje ha sido enviado con éxito</p>
+      )}
     </form>
   </div>
 </section>
@@ -36,8 +57,8 @@ const handleSubmit = (e: Event) => {
 <style>
 .contact-section {
   padding: 80px 20px;
-  background-color: #f8f8ef; /* Fondo clarito */
-  color: #422222; /* Letras color principal */
+  background-color: #f8f8ef;
+  color: #422222;
   margin-top: -100px;
 }
 
@@ -106,16 +127,30 @@ const handleSubmit = (e: Event) => {
 }
 
 .contact-form button:hover {
-  background-color: #422222;
   transform: scale(1.05);
 }
 
-/* Responsividad */
+/* Mensaje de éxito */
+.success-message {
+  margin-top: 15px;
+  padding: 12px;
+  background: #2ecc71;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsivo */
 @media (max-width: 768px) {
   .contact-title {
     font-size: 2rem;
   }
-
   .contact-text {
     font-size: 1rem;
   }

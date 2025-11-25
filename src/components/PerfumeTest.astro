@@ -1,0 +1,267 @@
+---
+/* No necesitas nada en el frontmatter */
+---
+<section id="test" class="test-section">
+  <div class="test-container">
+
+    <h2 class="test-title">Test para encontrar tu perfume ideal</h2>
+    <p class="test-text">Responde estas preguntas y te recomendaremos 3 opciones perfectas para ti.</p>
+
+    <form id="perfumeTest" class="test-form">
+      
+      <!-- Pregunta 1 -->
+      <label>
+        ¿Qué tipo de aroma prefieres?
+        <select name="aroma" required>
+          <option value="">Selecciona...</option>
+
+          <option value="dulce">Dulces / Gourmand</option>
+          <option value="fresco">Florales / Frescas</option>
+          <option value="amaderado">Amaderadas / Orientales</option>
+          <option value="citrico">Cítricas / Acuáticas</option>
+
+        </select>
+      </label>
+
+      <!-- Pregunta 2 -->
+      <label>
+        ¿Para qué ocasión lo quieres usar?
+        <select name="ocasion" required>
+          <option value="">Selecciona...</option>
+          <option value="diario">Uso diario</option>
+          <option value="cita">Citas / Especial</option>
+          <option value="fiesta">Fiesta / Noche</option>
+          <option value="trabajo">Trabajo / Formal</option>
+        </select>
+      </label>
+
+      <!-- Pregunta 3 -->
+      <label>
+        ¿Qué intensidad prefieres?
+        <select name="intensidad" required>
+          <option value="">Selecciona...</option>
+          <option value="suave">Suave</option>
+          <option value="medio">Intermedio</option>
+          <option value="fuerte">Fuerte / Muy marcado</option>
+        </select>
+      </label>
+
+      <button type="submit" class="test-btn">Ver resultados</button>
+    </form>
+
+    <!-- Resultados -->
+    <div id="resultados" class="resultados hidden"></div>
+
+  </div>
+</section>
+
+<script>
+  // CATEGORÍAS NUEVAS CON TUS PERFUMES REALES
+  const perfumes = {
+    dulce: [
+      {
+        nombre: "JPG Ultra Male",
+        link: "#",
+        motivo: "Dulce, juvenil y muy llamativo. Ideal para fiestas o citas."
+      },
+      {
+        nombre: "Versace Eros EDT",
+        link: "https://santuredecants.mitiendanube.com/productos/versace-eros-edt/",
+        motivo: "Aroma dulce mentolado que destaca y proyecta muchísimo."
+      },
+      {
+        nombre: "Scandal EDP",
+        link: "#",
+        motivo: "Dulce intenso con vibe seductora y nocturna."
+      },
+      {
+        nombre: "JPG Le Male EDP",
+        link: "#",
+        motivo: "Dulce elegante con vainilla cremosa y mucha presencia."
+      }
+    ],
+
+    fresco: [
+      {
+        nombre: "JPG Le Beau EDT",
+        link: "https://santuredecants.mitiendanube.com/productos/le-beau-le-parfum/",
+        motivo: "Fresco tropical con coco y bergamota. Muy atractivo."
+      },
+      {
+        nombre: "JPG Le Beau EDP",
+        link: "https://santuredecants.mitiendanube.com/productos/le-beau-le-parfum/",
+        motivo: "Aroma fresco, dulce y más intenso que la versión EDT."
+      },
+      {
+        nombre: "Gris Blush Elixir",
+        link: "#",
+        motivo: "Perfume fresco floral pero moderno y elegante."
+      }
+    ],
+
+    amaderado: [
+      {
+        nombre: "YSL Y EDP",
+        link: "https://santuredecants.mitiendanube.com/productos/ysl-y-edp/",
+        motivo: "Aroma amaderado moderno, limpio y masculino. Versátil."
+      },
+      {
+        nombre: "Xerjoff Torino 21",
+        link: "#",
+        motivo: "Aroma elegante y fino con notas herbales y orientales."
+      },
+      {
+        nombre: "SWY Parfum",
+        link: "#",
+        motivo: "Amaderado intenso con gran duración, ideal para noche."
+      }
+    ],
+
+    citrico: [
+      {
+        nombre: "Acqua Di Gio Profondo EDP",
+        link: "https://santuredecants.mitiendanube.com/productos/acqua-di-gio-profondo-parfum/",
+        motivo: "Cítrico marino súper limpio y masculino. Ideal diario."
+      },
+      {
+        nombre: "PDM Greenly",
+        link: "#",
+        motivo: "Aroma verde, fresco y muy profesional para cualquier día."
+      }
+    ]
+  };
+
+  const form = document.getElementById("perfumeTest");
+  const resultBox = document.getElementById("resultados");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const datos = new FormData(form);
+    const preferencia = datos.get("aroma");
+
+    // 1. Conseguir la categoría
+    const categoria = perfumes[preferencia];
+
+    // 2. Mezclar aleatoriamente
+    const mezclados = categoria.sort(() => Math.random() - 0.5);
+
+    // 3. Tomar 3 perfumes
+    const recomendados = mezclados.slice(0, 3);
+
+    resultBox.innerHTML = `
+      <h3 class="res-title">Tus perfumes recomendados</h3>
+
+      ${recomendados
+        .map(
+          (p) => `
+        <div class="res-card">
+          <h4>${p.nombre}</h4>
+          <p>${p.motivo}</p>
+          <a href="${p.link}" target="_blank">Ver perfume</a>
+        </div>
+      `
+        )
+        .join("")}
+    `;
+
+    resultBox.classList.remove("hidden");
+    resultBox.scrollIntoView({ behavior: "smooth" });
+  });
+</script>
+
+<style>
+.test-section {
+  padding: 80px 20px;
+  background: #f8f8ef;
+  color: #422222;
+}
+
+.test-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.test-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.test-text {
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+}
+
+.test-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.test-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  text-align: left;
+}
+
+.test-form select {
+  margin-top: 6px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e5e5d9;
+  background: #ffffff;
+  color: #422222;
+}
+
+.test-btn {
+  margin-top: 10px;
+  padding: 14px;
+  background: #422222;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.resultados {
+  margin-top: 40px;
+}
+
+.hidden {
+  display: none;
+}
+
+.res-title {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.res-card {
+  background: white;
+  border: 1px solid #e5e5d9;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  text-align: left;
+  transition: transform .2s;
+}
+
+.res-card:hover {
+  transform: scale(1.03);
+}
+
+.res-card h4 {
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+}
+
+.res-card a {
+  color: #422222;
+  font-weight: 700;
+  text-decoration: underline;
+}
+</style>
