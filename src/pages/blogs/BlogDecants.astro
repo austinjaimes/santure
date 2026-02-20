@@ -1,0 +1,286 @@
+---
+// BlogDecants.astro
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsappButton from '../../components/WhatsappButton.astro';
+import InstagramPopup from '../../components/InstagramPopup.astro';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santure | Decant vs Perfume</title>
+</head>
+
+<body>
+  <NavBar />
+<section class="blog-container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-overlay">
+      <h1>¿Por qué comprar decants antes del perfume original?</h1>
+      <p>Descubre la forma inteligente de elegir tu próximo perfume sin gastar de más.</p>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+  <div class="content">
+
+    <!-- INTRO -->
+    <p class="intro">
+      Comprar un perfume original puede ser una inversión importante. 
+      Muchas veces elegimos un aroma en tienda, pero al usarlo varios días
+      descubrimos que no era exactamente lo que esperábamos. 
+      Aquí es donde los <strong>decants</strong> se convierten en la mejor opción.
+    </p>
+
+    <!-- SECCIÓN -->
+    <div class="section">
+      <div class="text">
+        <h2>💰 1. Menor inversión</h2>
+        <p>
+          Un perfume original puede costar miles de pesos. 
+          Un decant te permite disfrutar la misma fragancia original,
+          pagando solo por los mililitros que realmente quieres probar.
+        </p>
+        <p>
+          Es una forma inteligente de ahorrar dinero mientras conoces
+          nuevas fragancias sin comprometer tu presupuesto.
+        </p>
+      </div>
+      <div class="image">
+        <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de" alt="Perfume de lujo" />
+      </div>
+    </div>
+
+    <div class="section reverse">
+      <div class="text">
+        <h2>🧪 2. Probar antes de comprar tamaño completo</h2>
+        <p>
+          Un perfume evoluciona con el tiempo en tu piel.
+          Lo que hueles en los primeros minutos no siempre
+          es igual después de varias horas.
+        </p>
+        <p>
+          Con un decant puedes usarlo durante días,
+          probarlo en diferentes climas y situaciones
+          y asegurarte de que realmente es tu aroma ideal.
+        </p>
+      </div>
+      <div class="image">
+        <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539" alt="Aplicando perfume" />
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="text">
+        <h2>🌎 3. Mayor variedad de aromas</h2>
+        <p>
+          En lugar de tener solo un perfume grande,
+          puedes tener varios decants diferentes.
+        </p>
+        <p>
+          Un aroma para la escuela, otro para salir,
+          uno elegante para eventos especiales
+          y otro fresco para el día a día.
+        </p>
+      </div>
+      <div class="image">
+        <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f" alt="Colección de perfumes" />
+      </div>
+    </div>
+
+    <div class="section reverse">
+      <div class="text">
+        <h2>🎓 4. Ideal para estudiantes</h2>
+        <p>
+          Si eres estudiante, sabes que cuidar tu dinero es importante.
+          Los decants te permiten oler increíble sin hacer una gran inversión.
+        </p>
+        <p>
+          Es la manera perfecta de elevar tu presencia
+          sin afectar tu economía.
+        </p>
+      </div>
+      <div class="image">
+        <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38" alt="Joven usando perfume" />
+      </div>
+    </div>
+
+    <!-- CONCLUSIÓN -->
+    <div class="conclusion">
+      <h2>Conclusión</h2>
+      <p>
+        Comprar decants es una decisión inteligente.
+        Te permite ahorrar, probar antes de invertir
+        y encontrar el perfume perfecto para ti.
+      </p>
+      <p class="highlight">
+        En Santure Decants creemos que elegir tu aroma
+        debe ser una experiencia segura, accesible y emocionante.
+      </p>
+    </div>
+
+  </div>
+  </div>
+
+</section>
+<Footer />
+	<WhatsappButton />
+	<InstagramPopup />
+</body>
+</html>
+
+<style>
+
+body {
+  margin: 0;
+  background-color: #f8f8ef;
+  font-family: 'Segoe UI', sans-serif;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* HERO */
+.hero {
+  height: 65vh;
+  background-image: url('https://media.gq.com.mx/photos/5f03717b85180fb06783509c/master/pass/Cover.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-overlay {
+  background: rgba(0,0,0,0.55);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 38px;
+  max-width: 750px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  opacity: 0.95;
+}
+
+/* CONTENT WRAPPER */
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 80px 20px;
+}
+
+.content {
+  max-width: 1050px;
+  width: 100%;
+  padding: 70px;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+}
+
+.intro {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+/* SECTIONS */
+.section {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 90px;
+}
+
+.section.reverse {
+  flex-direction: row-reverse;
+}
+
+.text {
+  flex: 1;
+}
+
+.text h2 {
+  font-size: 24px;
+  color: #422222;
+  margin-bottom: 18px;
+}
+
+.text p {
+  margin-bottom: 14px;
+}
+
+.image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image img {
+  width: 100%;
+  max-width: 380px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.image img:hover {
+  transform: scale(1.03);
+}
+
+/* CONCLUSION */
+.conclusion {
+  text-align: center;
+  background: white;
+  padding: 50px;
+  border-radius: 20px;
+}
+
+.conclusion h2 {
+  color: #422222;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  margin-top: 20px;
+  font-weight: 600;
+  color: #422222;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .content {
+    padding: 40px 25px;
+  }
+
+  .section,
+  .section.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image img {
+    height: 240px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+}
+
+</style>

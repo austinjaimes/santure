@@ -1,19 +1,22 @@
 ---
 const posts = [
   {
-    title: "Cómo elegir tu primer perfume",
-    excerpt: "Elegir un perfume puede ser difícil. Aquí te explicamos cómo identificar notas, familias olfativas y elegir el aroma ideal.",
-    date: "12 Nov 2025"
+    title: "¿Por qué comprar decants antes del perfume original?",
+    excerpt: "Descubre cómo ahorrar dinero, probar antes de invertir y disfrutar variedad de aromas con el formato decant.",
+    date: "23 Feb 2026",
+    link: "/blogs/BlogDecants"
   },
   {
-    title: "¿Qué son las notas olfativas?",
-    excerpt: "Aprende la diferencia entre notas de salida, corazón y fondo, y cómo influyen en la duración de un perfume.",
-    date: "05 Nov 2025"
-  },
+  title: "Perfumes ideales para citas: 4 opciones que garantizan una gran impresión",
+  excerpt: "Descubre 4 perfumes masculinos perfectos para una cita, con sus notas, duración, proyección y el tipo de impresión que generan.",
+  date: "27 Feb 2026",
+  link: "/blogs/BlogCitas"
+},
   {
     title: "Por qué los decants son la mejor forma de probar perfumes",
     excerpt: "Antes de invertir en un perfume caro, descubre por qué probarlo en formato decant es la mejor decisión.",
-    date: "01 Nov 2025"
+    date: "01 Nov 2025",
+    link: "#"
   }
 ];
 ---
@@ -28,7 +31,7 @@ const posts = [
           <h3 class="blog-post-title">{post.title}</h3>
           <p class="blog-excerpt">{post.excerpt}</p>
           <p class="blog-date">{post.date}</p>
-          <a href="#" class="blog-link">Leer más →</a>
+          <a href={post.link} class="blog-link">Leer más →</a>
         </div>
       ))}
     </div>
@@ -36,7 +39,6 @@ const posts = [
 </div>
 
 <style>
-  /* CORRECCIÓN DEL PROBLEMA DE WIDTH */
   .blog-wrapper,
   .blog-wrapper * {
     box-sizing: border-box;
@@ -46,7 +48,7 @@ const posts = [
   .blog-wrapper {
     background-color: #f8f8ef;
     padding: 50px 20px;
-    overflow-x: hidden; /* <-- evita que se salga de la pantalla */
+    overflow-x: hidden;
   }
 
   .blog-section {
